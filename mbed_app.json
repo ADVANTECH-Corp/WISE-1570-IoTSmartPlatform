@@ -1,0 +1,43 @@
+{
+     "macros": [
+        "UDP_SOCKET_PORT=5683",
+        "SERVER_IP_ADDR=\"211.20.181.199\"",
+        "API_KEY=\"INPUT_YOUR_API_KEY_STRING\"",
+        "DEVICE_DIGEST=\"INPUT_YOUR_DIGEST_STRING\"",
+        "DEVICE_SN=\"INPUT_YOUR_SERIAL_NUMBER_STRING\"",
+        "SPLAT_DEBUG=0",
+        "SPLAT_RAW_DEBUG=0",
+        "COAP_API_DEBUG=0",
+        "COAP_API_RAW_DEBUG=0"
+    ],
+    "config": {
+	    "trace-level": {
+	        "help":"Options are TRACE_LEVEL_ERROR,TRACE_LEVEL_WARN,TRACE_LEVEL_INFO,TRACE_LEVEL_DEBUG",
+	        "macro_name":"MBED_TRACE_MAX_LEVEL",
+	        "value":"TRACE_LEVEL_INFO"
+	    }
+	},
+    "target_overrides": {
+        "*": {
+                "target.network-default-interface-type": "CELLULAR",
+	            "target.clock_source": "USE_PLL_HSE_XTAL",
+                "target.features_add": ["LWIP", "COMMON_PAL"],
+	            "mbed-trace.enable":false,
+                "lwip.ipv4-enabled": true,
+                "lwip.ethernet-enabled": false,
+                "lwip.ppp-enabled": false,
+                "lwip.tcp-enabled": true,
+                "platform.stdio-convert-newlines": true,
+                "platform.stdio-baud-rate": 115200,
+                "platform.default-serial-baud-rate": 9600,
+	            "target.stdio_uart_tx": "UART2_TX",
+	            "target.stdio_uart_rx": "UART2_RX",
+	            "cellular.debug-at": false,
+                "nsapi.default-cellular-plmn": 0,
+                "nsapi.default-cellular-sim-pin": "\"1234\"",
+                "nsapi.default-cellular-apn": "\"internet.iot\"",
+                "nsapi.default-cellular-username": 0,
+                "nsapi.default-cellular-password": 0
+        }
+    }
+}
